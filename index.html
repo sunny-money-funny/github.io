@@ -3,54 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>실험 설문</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f7f7f7;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-        }
-        .question {
-            margin-bottom: 15px;
-        }
-        .options input {
-            margin-right: 10px;
-        }
-        .submit-btn {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-        }
-        .submit-btn:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <title>실험</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <div class="container">
-        <h1>실험 설문</h1>
-        <form id="experimentForm">
-            <div id="questionContainer"></div>
-            <button type="submit" class="submit-btn">결과 제출</button>
-        </form>
+    <h1>실험</h1>
+    <p id="question">질문을 기다리는 중...</p>
+    <div>
+        <input type="radio" id="choice1" name="choice" value="1"> <label id="left"></label><br>
+        <input type="radio" id="choice2" name="choice" value="2"> <label id="right"></label><br>
     </div>
+    <button id="submit">선택</button>
+    <div id="result"></div>
 
-    <script src="experiment.js"></script>
+    <button onclick="startExperiment()">실험 시작</button>
+
+    <!-- JavaScript 파일 연결 -->
+    <script src="script.js"></script>
 </body>
 </html>
