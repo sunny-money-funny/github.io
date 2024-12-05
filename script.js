@@ -44,7 +44,7 @@ function startExperiment() {
         const startTime = new Date().getTime();
         
         // UI에 질문과 옵션 표시
-        document.getElementById('question').innerText = question;
+        document.getElementById('question').innerText = question; // 질문을 여기에 표시합니다.
         document.getElementById('left').innerText = `1) ${left}`;
         document.getElementById('right').innerText = `2) ${right}`;
 
