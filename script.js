@@ -33,6 +33,10 @@ function startExperiment() {
     results = [];
     document.getElementById('result').innerHTML = ''; // 결과 초기화
 
+    // 버튼과 텍스트 초기화
+    document.getElementById('startButton').style.display = 'none'; // 시작 버튼 숨기기
+    document.getElementById('submit').style.display = 'block'; // 제출 버튼 보이기
+
     // 질문과 옵션을 보여주는 함수
     function askQuestion() {
         if (testNumber > 18) {
@@ -48,13 +52,16 @@ function startExperiment() {
         document.getElementById('left').innerText = `1) ${left}`;
         document.getElementById('right').innerText = `2) ${right}`;
 
-        // 사용자의 선택을 처리하는 함수
+        // 선택지를 제출했을 때
         document.getElementById('submit').onclick = function () {
             const reactionTime = (new Date().getTime() - startTime) / 1000;
             const selectedOption = document.querySelector('input[name="choice"]:checked').value === '1' ? left : right;
-            
-            // 선택된 옵션과 반응 시간 저장
+
+            // 결과 저장
             results.push({ testNumber, question, selectedOption, reactionTime });
+
+            // 다음 질문으로 넘어가기 전에 선택을 초기화
+            document.querySelector('input[name="choice"]:checked').checked = false;
 
             testNumber++;
             askQuestion(); // 다음 질문으로 이동
